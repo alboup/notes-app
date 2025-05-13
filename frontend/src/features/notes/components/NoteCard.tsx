@@ -1,4 +1,4 @@
-import { Note } from '../hooks/useNotes';
+import type { Note } from '../hooks/useNotes';
 
 interface Props { 
   note: Note; 

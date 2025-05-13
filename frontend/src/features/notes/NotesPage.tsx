@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNotes } from './hooks/useNotes';
+import NoteCard from './components/NoteCard';
 
 export default function NotesPage() {
   const { data, isLoading, error } = useNotes();
@@ -15,11 +16,12 @@ export default function NotesPage() {
       
       <div>
         {data.data.map(note => (
-          <div key={note.id} style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}>
-            <h3>{note.title}</h3>
-            <p>{note.content}</p>
-            <small>Creado: {new Date(note.created_at).toLocaleDateString()}</small>
-          </div>
+          <NoteCard 
+            key={note.id} 
+            note={note} 
+            onEdit={() => console.log('Edit note', note.id)} 
+            onDelete={() => console.log('Delete note', note.id)}
+          />
         ))}
       </div>
     </div>
