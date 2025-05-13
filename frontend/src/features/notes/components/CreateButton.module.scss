@@ -1,0 +1,24 @@
+.createButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 1.5rem;
+    
+    &:hover {
+      background-color: #218838;
+      transform: translateY(-1px);
+    }
+    
+    .icon {
+      font-size: 1.2rem;
+    }
+  }

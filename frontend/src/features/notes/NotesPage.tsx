@@ -3,6 +3,7 @@ import { useNotes } from './hooks/useNotes';
 import NoteCard from './components/NoteCard';
 import SearchBar from './components/SearchBar';
 import Pagination from './components/Pagination';
+import CreateButton from './components/CreateButton';
 
 export default function NotesPage() {
   const [page, setPage] = useState(1);
@@ -14,7 +15,7 @@ export default function NotesPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setSearch(searchInput);
-      setPage(1); // Solo resetear cuando aplicamos la búsqueda
+      setPage(1);
     }, 300);
 
     return () => clearTimeout(timer);
@@ -32,6 +33,8 @@ export default function NotesPage() {
         value={searchInput}
         onChange={setSearchInput}
       />
+      
+      <CreateButton onClick={() => console.log('Crear nueva nota')} />
       
       <p>Total notas: {data.total}</p>
       
