@@ -22,7 +22,7 @@ export type NotesResponse = {
   next_page_url: string | null;
 };
 
-Manejo de argumentos opcionales
+//Manejo de argumentos opcionales
 export const useNotes = (page: number = 1, search: string = '') =>
   useQuery<NotesResponse>({
     queryKey: ['notes', page, search],
