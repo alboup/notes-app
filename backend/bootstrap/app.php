@@ -16,6 +16,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'doonamis' => \App\Http\Middleware\DoonamisHeader::class,
         ]);
     })
+    ->withProviders([
+        \App\Providers\RepositoryServiceProvider::class,
+    ])
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
