@@ -1,35 +1,36 @@
 import type { Note } from '../hooks/useNotes';
+import styles from './NoteCard.module.scss';
 
-interface Props { 
-  note: Note; 
-  onEdit: () => void; 
-  onDelete: () => void; 
+interface Props {
+  note: Note;
+  onEdit: () => void;
+  onDelete: () => void;
 }
 
 export default function NoteCard({ note, onEdit, onDelete }: Props) {
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('es-ES', {
+      day: '2-digit',
+      month: '2-digit',
+    });
+  };
+
   return (
-    <div style={{ 
-      border: '1px solid #ddd', 
-      padding: '1rem', 
-      margin: '1rem 0',
-      backgroundColor: 'white',
-      borderRadius: '4px'
-    }}>
-      <h3 style={{ margin: '0 0 0.5rem 0' }}>{note.title}</h3>
-      <p style={{ color: '#666', marginBottom: '0.5rem' }}>
-        {note.content}
-      </p>
-      <div style={{ fontSize: '0.8rem', color: '#888' }}>
-        {new Date(note.created_at).toLocaleDateString()}
-      </div>
-      <div style={{ marginTop: '1rem' }}>
-        <button onClick={onEdit} style={{ marginRight: '0.5rem' }}>
+    <article className={styles.noteCard}>
+      <header className={styles.header}>
+        <h3>{note.title}</h3>
+        <time>{formatDate(note.created_at)}</time>
+      </header>
+      <p className={styles.content}>{note.content}</p>
+      <footer className={styles.actions}>
+        <button className={styles.editBtn} onClick={onEdit}>
           Editar
         </button>
-        <button onClick={onDelete}>
+        <button className={styles.deleteBtn} onClick={onDelete}>
           Eliminar
         </button>
-      </div>
-    </div>
+      </footer>
+    </article>
   );
 }

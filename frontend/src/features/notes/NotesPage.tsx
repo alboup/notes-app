@@ -67,7 +67,7 @@ export default function NotesPage() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Bloc de Notas</h1>
       
       <SearchBar 
@@ -79,7 +79,7 @@ export default function NotesPage() {
       
       <p>Total notas: {data.total}</p>
       
-      <div>
+      <section className="notes-grid">
         {data.data.map(note => (
           <NoteCard
             key={note.id}
@@ -88,7 +88,7 @@ export default function NotesPage() {
             onDelete={() => handleDeleteNote(note)}
           />
         ))}
-      </div>
+      </section>
       
       <Pagination 
         current={data.current_page} 
