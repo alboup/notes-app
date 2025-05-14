@@ -23,7 +23,7 @@ export default function NotesPage() {
     const timer = setTimeout(() => {
       setSearch(searchInput);
       setPage(1);
-    }, 300);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, [searchInput]);
