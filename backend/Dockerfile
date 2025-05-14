@@ -9,7 +9,6 @@ COPY . .
 
 # Instalamos las dependencias de PHP sin ejecutar scripts que llamen a artisan
 RUN composer install \
-    --no-dev \
     --no-interaction \
     --no-scripts \
     --optimize-autoloader
