@@ -23,11 +23,16 @@ export default function NotesPage() {
     const timer = setTimeout(() => {
       setSearch(searchInput);
       setPage(1);
-    }, 800);
-
+    }, 4000);
     return () => clearTimeout(timer);
   }, [searchInput]);
 
+  // búsqueda inmediata al pulsar Enter
+  const handleSearchEnter = () => {
+    setSearch(searchInput);
+    setPage(1);
+  };
+  
   if (isLoading) return <div>Cargando notas...</div>;
   if (error) return <div>Error: {String(error)}</div>;
   if (!data) return <div>No hay datos</div>;
@@ -73,6 +78,7 @@ export default function NotesPage() {
       <SearchBar 
         value={searchInput}
         onChange={setSearchInput}
+        onEnter={handleSearchEnter}
       />
       
       <CreateButton onClick={handleCreateNote} />

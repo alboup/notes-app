@@ -11,9 +11,10 @@ export default function NoteCard({ note, onEdit, onDelete }: Props) {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('es-ES', {
-      day: '2-digit',
-      month: '2-digit',
-    });
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
   };
 
   return (
