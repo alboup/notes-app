@@ -146,3 +146,4 @@ dist
 
 # Docker artefacts
 docker-compose.override.yml
+.DS_Store
